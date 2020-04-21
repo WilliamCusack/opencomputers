@@ -5,7 +5,8 @@ local shell = require("shell")
 --------------------
 print("Going to download any libraries to be used")
 shell.execute("pastebin get -f 0wvhiHy1 mylib.lua")
-local my = require("mylib.lua")
+package.loaded.mylib = nil
+my = require("mylib")
 
 --------------
 -----------
@@ -31,11 +32,10 @@ local drawerPassCode = {9,11}   --This is the chest that signifies the transpose
 --Config Functions to find parser blocks and whatnot
     --find parser item, find parser end item
     --will be on a chest on top of the transposer with 3/3 parser/end blocks
-    
-setParserItem()
+--my.setParserItem()
 
 
-setParserEndItem()
+--my.setParserEndItem()
 
 
 --## Storage System ##--
@@ -59,16 +59,3 @@ setParserEndItem()
 
 ----Check all transposers with the parser block in first slot and
     --end block in them
-
-
-
-
-
-
-
-
-
-
-
-
-
