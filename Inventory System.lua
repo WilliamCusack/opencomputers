@@ -70,12 +70,14 @@ local function setParserItem()
 
         
     end
+    return void
 end
 
 local function setParserEndItem()
     if parserEndItem then
     
     end
+    return void
 end
 
 local function findComponents(componentName)     --Makes a table of all the address of components of the name
