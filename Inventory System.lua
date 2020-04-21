@@ -1,4 +1,15 @@
 print("IM is running!")
+local shell = require("shell")
+--------------------
+--Initialization Procedures
+--------------------
+print("Going to download any libraries to be used")
+shell.execute("pastebin get -f 0wvhiHy1 mylib.lua")
+local my = require("mylib.lua")
+
+--------------
+-----------
+-------------
 local c = require("component")
 local ct = c.transposer
 local shell = require("shell")
@@ -14,36 +25,7 @@ local drawerPassCode = {9,11}   --This is the chest that signifies the transpose
 
 
 
--------------------------------------------------------
------------FUNCTIONS------------------------------------ Gotta be defined before they're called
---------------------------------------------------------
 
-local function setParserItem()
-    if parserItem then
-        local transposers = findComponents("ransposer")
-
-        
-    end
-    return void
-end
-
-local function setParserEndItem()
-    if parserEndItem then
-    
-    end
-    return void
-end
-
-local function findComponents(componentName)     --Makes a table of all the address of components of the name
-    local components = {}
-    for address, name in c.list(componentName, false) do
-        table.insert(components, c.list(address))
-
-    end
-    return components
-end
------------------------------------------------------
----------------------------------------------------------------
 
 
 --Config Functions to find parser blocks and whatnot
@@ -57,7 +39,6 @@ setParserEndItem()
 
 
 --## Storage System ##--
-print("IM is running!")
 
 
 ---- Empty Input Chest---  Basically starting from a fresh state.
