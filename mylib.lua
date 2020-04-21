@@ -4,18 +4,25 @@
 local mylib = {}
  
 print("mylib.lua loaded")
+
+
+local c = require("component")
+local ct = component.transposer
+local shell = require("shell")
+local sides = require("sides")
+local modem = require("modem")
  
 function mylib.setParserItem()
-    print("we set the parser item")
-    if parserItem then
+   
+    if not parserItem then
         local transposers = findComponents("ransposer")
  
-       
+        print("we set the parser item to")
     end
 end
  
 function mylib.setParserEndItem()
-    if parserEndItem then
+    if not parserEndItem then
    
     end
 end
@@ -27,6 +34,11 @@ function mylib.findComponents(componentName)     --Makes a table of all the addr
  
     end
     return components
+end
+
+function mylib.findComputerJob() --THis will search the chests for the identifier of the storage, crafting, and other systems so each program(computer) has a name an can do the respective operations
+    local computerJob = nil
+    return computerJob
 end
  
 return mylib

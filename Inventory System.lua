@@ -8,6 +8,7 @@ shell.execute("pastebin get -f 0wvhiHy1 mylib.lua")
 package.loaded.mylib = nil
 my = require("mylib")
 
+
 --------------
 -----------
 -------------
@@ -15,7 +16,14 @@ local c = require("component")
 local ct = c.transposer
 local shell = require("shell")
 local sides = require("sides")
+local modem = require("modem")
 
+-------Variables-----------
+
+local jobName = nil
+
+--------------------
+-------------------
 ---- Config Variables 
 local recipeSide = sides.east
 local outputSide = sides.down
@@ -29,13 +37,16 @@ local drawerPassCode = {9,11}   --This is the chest that signifies the transpose
 
 
 
---Config Functions to find parser blocks and whatnot
-    --find parser item, find parser end item
-    --will be on a chest on top of the transposer with 3/3 parser/end blocks
---my.setParserItem()
+------Config Functions to find parser blocks and whatnot
+      --find parser item, find parser end item
+      --will be on a chest on top of the transposer with 3/3 parser/end blocks
+
+jobName = my.findComputerJob()
+
+my.setParserItem()
 
 
---my.setParserEndItem()
+my.setParserEndItem()
 
 
 --## Storage System ##--
