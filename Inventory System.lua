@@ -1,5 +1,5 @@
 print("IM is running!")
---[[local c = require("component")
+local c = require("component")
 local ct = c.transposer
 local shell = require("shell")
 local sides = require("sides")
@@ -9,6 +9,8 @@ local recipeSide = sides.east
 local outputSide = sides.down
 local parserItem = nil      --can set these two manually if you want
 local parserEndItem = nil   --^^^^
+local drawerPassCode = {9,11}   --This is the chest that signifies the transposer connected to drawer controller. 
+                                --Its the first slot being parserblock amount and second slot being end block ammount, also used to find the parser items
 
 ---------------------------------------------------------------
 
@@ -84,4 +86,3 @@ local function findComponents(componentName)     --Makes a table of all the addr
     end
     return components
 end
---]]
