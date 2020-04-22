@@ -9,6 +9,7 @@ local component = require("component")
 local c = component
 local ct = component.transposer
 local shell = require("shell")
+local sides = require("sides")
 
 
 
