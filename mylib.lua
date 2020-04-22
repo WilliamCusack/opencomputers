@@ -6,7 +6,11 @@ local mylib = {}
 print("mylib.lua loaded")
 
 local component = require("component")
+local ct = component.transposer
 local shell = require("shell")
+
+
+
 
  
 function mylib.setParserItem()
@@ -41,6 +45,17 @@ function mylib.findComputerJob() --THis will search the chests for the identifie
 	computerJob = "toWORK"
 	print("The name should be ", computerJob)
     return computerJob
+end
+
+function mylib.findSidesWithInventories(address)
+    local invsides = {}
+    for i,v in ipairs(sides) do
+        size = ct.getInventorySize(sides.v)
+        if size > 0 do 
+            table.insert(invsides, size)
+         end
+
+    end
 end
  
 return mylib
