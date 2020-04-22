@@ -16,7 +16,7 @@ local c = require("component")
 local ct = c.transposer
 local shell = require("shell")
 local sides = require("sides")
-local modem = require("modem")
+
 
 -------Variables-----------
 
@@ -42,6 +42,7 @@ local drawerPassCode = {9,11}   --This is the chest that signifies the transpose
       --will be on a chest on top of the transposer with 3/3 parser/end blocks
 
 jobName = my.findComputerJob()
+print(jobName)
 
 my.setParserItem()
 
