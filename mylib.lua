@@ -6,6 +6,7 @@ local mylib = {}
 print("mylib.lua loaded")
 
 local component = require("component")
+local c = component
 local ct = component.transposer
 local shell = require("shell")
 
@@ -20,6 +21,7 @@ function mylib.setParserItem()
 		transposers = mylib.findComponents("ransposer")
          for i,v in pairs(transposers) do 
             print(i,v)
+            print(v)
             mylib.findSidesWithInventories(v)
          end
 
@@ -53,7 +55,7 @@ end
 function mylib.findSidesWithInventories(address)
     local invsides = {}
     for i,v in ipairs(sides) do
-        size = ct.getInventorySize(sides.v)
+        size = c.address.getInventorySize(sides.v)
         if size > 0 then 
             table.insert(invsides, size)
             print("Inventory on side: ", sides[1])
