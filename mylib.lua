@@ -53,6 +53,7 @@ function mylib.findSidesWithInventories(address)
         size = ct.getInventorySize(sides.v)
         if size > 0 then 
             table.insert(invsides, size)
+            print("Inventory on side: ", sides[1])
          end
 
     end
