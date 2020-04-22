@@ -51,7 +51,7 @@ function mylib.findSidesWithInventories(address)
     local invsides = {}
     for i,v in ipairs(sides) do
         size = ct.getInventorySize(sides.v)
-        if size > 0 do 
+        if size > 0 then 
             table.insert(invsides, size)
          end
 
