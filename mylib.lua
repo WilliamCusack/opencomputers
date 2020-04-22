@@ -59,7 +59,7 @@ function mylib.findSidesWithInventories(inputaddress)
         size = c.proxy(inputaddress).getInventorySize(sides.v)
         if size > 0 then 
             table.insert(invsides, size)
-            print("Inventory on side: ", sides[1])
+            print("Inventory on side: ", sides[i])
          end
 
     end
