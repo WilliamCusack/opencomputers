@@ -52,10 +52,11 @@ function mylib.findComputerJob() --THis will search the chests for the identifie
     return computerJob
 end
 
-function mylib.findSidesWithInventories(address)
+function mylib.findSidesWithInventories(inputaddress)
     local invsides = {}
     for i,v in ipairs(sides) do
-        size = c.address.getInventorySize(sides.v)
+        targetcomponent = component.proxy(inputaddress)
+        size = c.targetcomponent.getInventorySize(sides.v)
         if size > 0 then 
             table.insert(invsides, size)
             print("Inventory on side: ", sides[1])
