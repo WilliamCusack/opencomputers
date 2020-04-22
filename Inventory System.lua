@@ -4,7 +4,7 @@ local shell = require("shell")
 --Initialization Procedures
 --------------------
 print("Going to download any libraries to be used")
-shell.execute("pastebin get -f 0wvhiHy1 mylib.lua")
+shell.execute("wget -f https://raw.githubusercontent.com/WilliamCusack/opencomputers/master/mylib.lua mylib.lua")
 package.loaded.mylib = nil
 my = require("mylib")
 
