@@ -40,7 +40,7 @@ local drawerPassCode = {9,11}   --This is the chest that signifies the transpose
 ------Config Functions to find parser blocks and whatnot
       --find parser item, find parser end item
       --will be on a chest on top of the transposer with 3/3 parser/end blocks
-
+--------SET JOB NAME   (crafting,storage,deep,)
 jobName = my.findComputerJob()
 print(jobName)
 

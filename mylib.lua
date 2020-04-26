@@ -19,12 +19,14 @@ function mylib.setParserItem()
    
     if not parserItem then
         local transposers = {}
-		transposers = mylib.findComponents("ransposer")
+		--[[ transposers = mylib.findComponents("ransposer")
          for i,v in pairs(transposers) do 
             print(i,v)
             print(v)
             mylib.findSidesWithInventories(v)
-         end
+         end ]]
+        transposer = mylib.searchComponents("ransposer")
+        
 
         print("we set the parser item to")
     end
@@ -67,6 +69,18 @@ function mylib.findSidesWithInventories(inputaddress)
 
     end
 end
+
+function mylib.searchComponents(searchString)
+    local foundComponents = {}
+    foundComponents = mylib.findComponents(searchString)
+    for i,v in pairs(foundComponents) do 
+        print(i,v)
+        print(v)
+        mylib.findSidesWithInventories(v)
+     end
+    return foundComponents
+end
+
  
 return mylib
 -----------------------------------------------------

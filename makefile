@@ -7,3 +7,6 @@ git:
 copy:
 	cp -v -f Inventory* mylib* starter* /home/wcusack/Dropbox/Opencomputers/
     
+gitadd:
+	git add .
+	git commit -m "$m"
