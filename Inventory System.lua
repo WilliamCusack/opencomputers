@@ -4,7 +4,7 @@ local shell = require("shell")
 --Initialization Procedures
 --------------------
 print("Going to download any libraries to be used")
-shell.execute("wget -f --no-check-certificate --content-disposition --no-dns-cache https://www.dropbox.com/s/v97d9yelojtsub6/mylib.lua?dl=1 mylib.lua")
+shell.execute("wget -f --no-check-certificate --content-disposition https://www.dropbox.com/s/v97d9yelojtsub6/mylib.lua?dl=1 mylib.lua")
 package.loaded.mylib = nil
 my = require("mylib")
 ----
