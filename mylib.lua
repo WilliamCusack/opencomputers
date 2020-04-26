@@ -25,8 +25,9 @@ function mylib.setParserItem()
             print(v)
             mylib.findSidesWithInventories(v)
          end ]]
-        transposer = mylib.searchComponents("ransposer")
-        
+        transposers = mylib.findComponents("ransposer") --create list of matching components
+        mylib.searchComponents(transposers)     --iterate through the list and find all inventories
+
 
         print("we set the parser item to")
     end
@@ -70,10 +71,9 @@ function mylib.findSidesWithInventories(inputaddress)
     end
 end
 
-function mylib.searchComponents(searchString)
+function mylib.searchComponents(components)
     local foundComponents = {}
-    foundComponents = mylib.findComponents(searchString)
-    for i,v in pairs(foundComponents) do 
+    for i,v in pairs(components) do 
         print(i,v)
         print(v)
         mylib.findSidesWithInventories(v)
