@@ -57,7 +57,7 @@ function mylib.findSidesWithInventories(inputaddress)
     local invsides = {}
     for i,v in ipairs(sides) do
         targetcomponent = component.proxy(inputaddress)
-        size = c.proxy(inputaddress).getInventorySize(sides.v)
+        size = c.proxy(inputaddress).getInventorySize(sides.i)
         if size > 0 then 
             table.insert(invsides, size)
             print("Inventory on side: ", sides[i])
