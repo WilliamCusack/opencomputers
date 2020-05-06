@@ -55,6 +55,8 @@ local attachedTransposers = my.searchTable(attachedComponents, "transpo") --this
 local attachedInventories = my.findSidesWithInventories(attachedTransposers) --accepts a table of transposers or just a single address
 my.printTable(attachedInventories)
 
+local storagedb = my.buildDataBase(attachedInventories) -- This will take the transposers, and sides with inventories and build a DB with every item
+
 local jobName = nil
 
 

@@ -133,7 +133,7 @@ function mylib.printTable(inputTable, ...)
         print(i,v)
         if type(v) == "table" then
            -- for x,y in pairs(v) do
-            --print("We are in the table of:", v)
+            print("We are in the table of:", v, "named", i)
                 mylib.printTable(v)
               
                 
@@ -154,7 +154,7 @@ function mylib.printITable(inputTable, ...)
         print(i,v)
         if type(v) == "table" then
             -- for x,y in pairs(v) do
-                --print("We are in the table of:", v)
+                print("We are in the table of:", v, "named", i)
                 mylib.printTable(v)
                
                  
@@ -165,6 +165,56 @@ function mylib.printITable(inputTable, ...)
          end
     end
 end
+
+function mylib.buildDataBase(inputTable)
+    local dB = {}
+    local item = {}
+
+    
+    print("\n Now we will try to build the item DB")
+    for address, sidesTable in pairs(inputTable) do --go into sidesTable table
+        local tran = component.proxy(address)
+        print("into transposer", address)
+        for side, size in pairs(sidesTable) do   --go into each individual side with its size
+            print("into side", side, sides[side])
+            for i=1, size do                --Looking through each inventory and noting its items
+                local foundItem = tran.getStackInSlot(side,i)
+                if tran.getStackInSlot(side,i) then print(foundItem.name .. ":" .. foundItem.damage, "in slot", i) 
+                    local itemSign = foundItem.name .. ":" .. foundItem.damage 
+                    
+                    if not dB[itemSign] then dB[itemSign] = {}  print("New Item Added:", itemSign)end
+                    dB[itemSign]['name'] = foundItem.name
+                
+                    dB[itemSign]['label'] = foundItem.label
+                    
+                    if not dB[itemSign]['location'] then dB[itemSign]['location'] = {}  end         --This will contain a table of tables mapped by address
+                    if not dB[itemSign]['location'][address] then dB[itemSign]['location'][address] = {} end
+                    if not dB[itemSign]['location'][address][side] then dB[itemSign]['location'][address][side] = {} end
+                    if not dB[itemSign]['location'][address][side]["slots"] then dB[itemSign]['location'][address][side]["slots"] = {} end
+                    dB[itemSign]['location'][address][side]["slots"][i] = foundItem.size
+                    print(i)
+
+                    
+                    --dB[itemSign] = item
+                    --item = {}
+                end
+            end
+        end
+    end
+    mylib.printTable(dB)
+    return dB
+end
+
+
+
+
+
+
+
+
+
+
+
 
 return mylib
 
