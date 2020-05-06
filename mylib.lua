@@ -44,7 +44,8 @@ function mylib.findComponents(componentName)     --Makes a table of all the addr
 
     if componentName then 
         for address, name in component.list(componentName, false) do
-            table.insert(components, address) --was components, component.list(address)
+            --table.insert(components, address) --was components, component.list(address)
+            components[address] = name
         end
         return components
     end
@@ -53,10 +54,13 @@ function mylib.findComponents(componentName)     --Makes a table of all the addr
         local foundTable = {}
         components[address] = name
         --table.insert(components, foundTable[address])
-        print(name, address, components[address])
+        --print(name, address, components[address])
         
     end
+    print("\n List of all connected components: \n" )
     for i,v in pairs(components) do print(i,v) end
+    print("\n")
+
     return components
 end
 
@@ -89,15 +93,20 @@ function mylib.searchComponents(components)
     for i,v in pairs(components) do 
         print(i,v)
         print(v)
-        mylib.findSidesWithInventories(v)
+        mylib.findSidesWithInventories(i)
      end
     return foundComponents
 end
 
-function mylib.searchTable(query)
+function mylib.searchTable(table, query)
     local searched = {}
 
-
+    for i,v in pairs(table) do
+        if string.find(v, query) then
+            searched[i] = v
+        end
+    end
+    for i,v in pairs(searched) do print(i,v) end
 return searched
 end
 

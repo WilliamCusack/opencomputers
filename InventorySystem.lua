@@ -50,17 +50,17 @@ local drawerPassCode = {9,11}   --This is the chest that signifies the transpose
 --------FIND ALL ATTACHED INVENTORIES (transposer address, sides, size)
 
 local attachedComponents = my.findComponents()
-local attachedTransposers = my.searchTable(attachedComponents, "transpo")
+local attachedTransposers = my.searchTable(attachedComponents, "transpo") --this will search attachedComponents (key(address) = value(name), ...) for the address that contains a name of second parameter
 
 local jobName = nil
 
 
-print(jobName, "This is the job name")
+--print(jobName, "This is the job name")
 
-my.setParserItem()
+--my.setParserItem()
 
 
-my.setParserEndItem()
+--my.setParserEndItem()
 
 
 --## Storage System ##--
