@@ -1,3 +1,4 @@
+
 print("IM is running!")
 local shell = require("shell")
 local args, opts = shell.parse(...)
@@ -51,6 +52,8 @@ local drawerPassCode = {9,11}   --This is the chest that signifies the transpose
 
 local attachedComponents = my.findComponents()
 local attachedTransposers = my.searchTable(attachedComponents, "transpo") --this will search attachedComponents (key(address) = value(name), ...) for the address that contains a name of second parameter
+local attachedInventories = my.findSidesWithInventories(attachedTransposers) --accepts a table of transposers or just a single address
+my.printTable(attachedInventories)
 
 local jobName = nil
 
