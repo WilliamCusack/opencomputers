@@ -1,12 +1,16 @@
 print("IM is running!")
 local shell = require("shell")
+local args, opts = shell.parse(...)
 --------------------
 --Initialization Procedures
 --------------------
-print("Going to download any libraries to be used")
-shell.execute("wget -f --no-check-certificate --content-disposition https://www.dropbox.com/s/v97d9yelojtsub6/mylib.lua?dl=1 mylib.lua")
+if args[1] == "dl" then
+      print("Going to download any libraries to be used")
+      shell.execute("wget -f --no-check-certificate --content-disposition https://www.dropbox.com/s/v97d9yelojtsub6/mylib.lua?dl=1 mylib.lua")
+end
 package.loaded.mylib = nil
 my = require("mylib")
+
 ----
 
 --------------
@@ -40,9 +44,18 @@ local drawerPassCode = {9,11}   --This is the chest that signifies the transpose
 ------Config Functions to find parser blocks and whatnot
       --find parser item, find parser end item
       --will be on a chest on top of the transposer with 3/3 parser/end blocks
---------SET JOB NAME   (crafting,storage,deep,)
-jobName = my.findComputerJob()
-print(jobName)
+--------SET JOB NAME   (crafting,storage,deep, main storage)
+--------FIND ALL COMPONENTS (Addresses)
+--------FIND ALL TRANSPOSERS (Addresses)
+--------FIND ALL ATTACHED INVENTORIES (transposer address, sides, size)
+
+local attachedComponents = my.findComponents()
+local attachedTransposers = my.searchTable(attachedComponents, "transpo")
+
+local jobName = nil
+
+
+print(jobName, "This is the job name")
 
 my.setParserItem()
 

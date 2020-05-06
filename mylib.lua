@@ -41,11 +41,22 @@ end
  
 function mylib.findComponents(componentName)     --Makes a table of all the address of components of the name
     local components = {}
-	local i = 0
-    for address, name in component.list(componentName, false) do
-        table.insert(components, address) --was components, component.list(address)
- 		i = i + 1
+
+    if componentName then 
+        for address, name in component.list(componentName, false) do
+            table.insert(components, address) --was components, component.list(address)
+        end
+        return components
     end
+
+    for address, name in component.list() do --This will occur when no parameters are entered and just returns all components addresses
+        local foundTable = {}
+        components[address] = name
+        --table.insert(components, foundTable[address])
+        print(name, address, components[address])
+        
+    end
+    for i,v in pairs(components) do print(i,v) end
     return components
 end
 
@@ -72,13 +83,22 @@ function mylib.findSidesWithInventories(inputaddress)
 end
 
 function mylib.searchComponents(components)
+   
     local foundComponents = {}
+
     for i,v in pairs(components) do 
         print(i,v)
         print(v)
         mylib.findSidesWithInventories(v)
      end
     return foundComponents
+end
+
+function mylib.searchTable(query)
+    local searched = {}
+
+
+return searched
 end
 
  
