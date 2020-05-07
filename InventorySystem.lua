@@ -56,6 +56,7 @@ local attachedInventories = my.findSidesWithInventories(attachedTransposers) --a
 my.printTable(attachedInventories)
 
 local storagedb = my.buildDataBase(attachedInventories) -- This will take the transposers, and sides with inventories and build a DB with every item
+my.printItemInfo(storagedb, "minecraft:dirt:0")
 
 local jobName = nil
 

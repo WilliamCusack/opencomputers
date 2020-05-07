@@ -205,7 +205,11 @@ function mylib.buildDataBase(inputTable)
     return dB
 end
 
-
+function mylib.printItemInfo(dataBase, ...)
+    local args, opts = shell.parse(...)
+    print('\n\nPrinting info on:', args[1])
+    mylib.printTable(dataBase[args[1]])
+end
 
 
 
